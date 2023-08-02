@@ -24,4 +24,7 @@ const Wrapper = styled.div<{ fill: string; stroke: string }>`
   color: ${({ stroke }) => stroke};
   width: 12.5%;
   height: 100px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;
