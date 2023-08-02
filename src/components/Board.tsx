@@ -2,6 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import Square from "./Square";
 import Knight from "./Knight";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 interface BoardProps {
   knightPosition: [number, number];
@@ -30,7 +32,11 @@ export default function Board({ knightPosition }: BoardProps) {
     squares.push(renderSquare(i, knightPosition));
   }
 
-  return <Wrapper>{squares}</Wrapper>;
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <Wrapper>{squares}</Wrapper>;
+    </DndProvider>
+  );
 }
 
 const Wrapper = styled.div`
